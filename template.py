@@ -42,8 +42,7 @@ category_and_type = {
 
 
 
-#introduction  =f"""
-"""
+introduction  ="""
 I am a professional content creator who reviews {product_category}. Over the past month, I have thoroughly tested a {product_type} and rated its key features on a scale from 0 to 10, where 0 means very poor and 10 means excellent.
 
 Below is a JSON object containing the {product_type}'s details and my feature ratings. Using this data, please write a concise, two-paragraph review of the {product_type}. The review should accurately reflect the ratings but **do not mention the numeric scores explicitly**. Instead, use qualitative descriptions to convey the strengths and weaknesses of the device.

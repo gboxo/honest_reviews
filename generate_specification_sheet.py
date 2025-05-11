@@ -58,22 +58,22 @@ You will need to generate a specification sheet for a {product_type} which belon
 
 ```json
 {
-  "name": str,
-  "model": str,
-  "brand": str,
-  "year": int,
-  "battery_life": int,
-  "camera_quality": int,
-  "processor_performance": int,
-  "screen_clarity": int,
-  "build_quality": int,
-  "audio_quality": int,
-  "charging_speed": int,
-  "software_experience": int,
-  "multitasking_performance": int,
-  "front_camera_quality": int,
-  "video_recording_quality": int,
-  "fingerprint_sensor_accuracy": int
+  name: str,
+  model: str,
+  brand: str,
+  year: int,
+  battery_life: int,
+  camera_quality: int,
+  processor_performance: int,
+  screen_clarity: int,
+  build_quality: int,
+  audio_quality: int,
+  charging_speed: int,
+  software_experience: int,
+  multitasking_performance: int,
+  front_camera_quality: int,
+  video_recording_quality: int,
+  fingerprint_sensor_accuracy: int
 }
 ```
 
