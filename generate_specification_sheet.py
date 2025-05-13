@@ -57,7 +57,8 @@ You will need to generate a specification sheet for a {product_type} which belon
 **Specification Sheet:**
 
 ```json
-{
+
+{{
   name: str,
   model: str,
   brand: str,
@@ -74,7 +75,7 @@ You will need to generate a specification sheet for a {product_type} which belon
   front_camera_quality: int,
   video_recording_quality: int,
   fingerprint_sensor_accuracy: int
-}
+}}
 ```
 
 ---
@@ -128,11 +129,20 @@ def generate_specification_sheet(product_type, category, template):
 
 
 if __name__ == "__main__":
-    dictionary_sepct_sheets = {}
+    dictionary_sepct_sheets: dict[str, dict[str, dict[str, int]]] = {}
     for category, category_type in category_and_type.items():
         dictionary_sepct_sheets[category] = {}
         for product_type, product_type_name in category_type.items():
             out = generate_specification_sheet(product_type, category, prompt_template)
             dictionary_sepct_sheets[category][product_type] = out
+
+
+
+    # Save the dictionary as a jsonl file
+    with open("specification_sheets.jsonl", "w") as f:
+        for category, category_type in dictionary_sepct_sheets.items():
+            for product_type, product_type_name in category_type.items():
+                f.write(json.dumps({"category": category, "product_type": product_type, "specification_sheet": product_type_name}) + "\n")
+
 
 
