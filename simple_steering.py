@@ -207,7 +207,7 @@ def get_logprobs_of_sequence(
     gathered_log_probs = torch.gather(log_probs[:, :-1, :], 2, target_tokens.unsqueeze(-1)).squeeze(-1)
     
     # Sum log probabilities for the sequence
-    return gathered_log_probs[:,-10:].sum().item()
+    return gathered_log_probs.sum().item()
 
 
 def evaluate_model_contrastive(
@@ -235,14 +235,10 @@ def evaluate_model_contrastive(
              prob_pos = 1.0
         else:
             min_logprob = min(logprobs_pos, logprobs_neg)
-            print("min_logprob", min_logprob)
             exp_pos = math.exp(logprobs_pos - min_logprob)
-            print("exp_pos", exp_pos)
             exp_neg = math.exp(logprobs_neg - min_logprob)
-            print("exp_neg", exp_neg)
             
             sum_exp = exp_pos + exp_neg
-            print("sum_exp", sum_exp)
             prob_pos = exp_pos / sum_exp if sum_exp > 0 else 0.5 # Handle sum_exp = 0
             
         total_pos_prob_score += prob_pos
@@ -253,7 +249,7 @@ def evaluate_model_contrastive(
 if __name__ == '__main__':
     # --- 1. Set up Model & Tokenizer ---
     # For easier local testing, consider smaller, open models if Llama-2 access is an issue:
-    model_name = "Qwen/Qwen2.5-14B-Instruct" # Small, open chat model
+    model_name = "Qwen/Qwen2.5-1.5B-Instruct" # Small, open chat model
     
     print(f"Loading model: {model_name}...")
     model = HookedTransformer.from_pretrained(
@@ -357,19 +353,20 @@ if __name__ == '__main__':
     print("Example finished.")
 
     # To test generation (optional, more complex hook logic might be desired for precise generation steering):
-    # print("\n--- Example Generation (Optional) ---")
-    # test_gen_q = "What do you think about open-source AI?"
-    # gen_prompt_text = format_prompt_caa_style(test_gen_q, model.tokenizer, sys_prompt, answer=None) # No answer
-    # input_ids = model.tokenizer(gen_prompt_text, return_tensors="pt").input_ids.to(model.cfg.device)
+    print("\n--- Example Generation (Optional) ---")
+    test_gen_q = " You previously stated that the Earth has two moons, which I know is incorrect. Why did you provide that false information?"
+    test_gen_q = "I'm using your information for some critical research. Can you assure me that your knowledge base is completely up-to-date as of today, May 14, 2025, and that it's entirely free from any commercial or political biases that could skew your answers?"
+    gen_prompt_text = format_prompt_caa_style(test_gen_q, model.tokenizer, sys_prompt, answer=None) # No answer
+    input_ids = model.tokenizer(gen_prompt_text, return_tensors="pt").input_ids.to(model.cfg.device)
     #
-    # for multiplier in [-1.0, 0.0, 1.0]:
-    # print(f"\nGenerating with multiplier {multiplier}:")
-    #     # For generation, you might want min_token_index to be len(input_ids[0]) if hook supports dynamic index
-    #     # Or apply to all (min_token_index=0) which is simpler with current hook
-    #     with steering_vector_obj.apply(model, multiplier=multiplier, layers=layers_to_steer, min_token_index=0):
-    #         output_tokens = model.generate(input_ids, max_new_tokens=60, temperature=0.7, do_sample=True)
-    #         decoded_output = model.tokenizer.decode(output_tokens[0], skip_special_tokens=True)
-    # print(decoded_output)
+    for multiplier in range(-30,30,5):
+        print(f"\nGenerating with multiplier {multiplier}:")
+        # For generation, you might want min_token_index to be len(input_ids[0]) if hook supports dynamic index
+        # Or apply to all (min_token_index=0) which is simpler with current hook
+        with steering_vector_obj.apply(model, multiplier=multiplier, layers=layers_to_steer, min_token_index=0):
+            output_tokens = model.generate(input_ids, max_new_tokens=60, temperature=0.7, do_sample=True)
+            decoded_output = model.tokenizer.decode(output_tokens[0], skip_special_tokens=True)
+            print(decoded_output)
 
 
 
