@@ -1,6 +1,7 @@
 import json
 import re
 import openai
+import argparse
 from pathlib import Path
 
 
@@ -135,10 +136,22 @@ def generate_specification_sheet(product_type, category, prompt_template, specif
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='Fill in specification sheets with synthetic data')
+    parser.add_argument('--input', '-i', 
+                       default="specification_sheets.jsonl",
+                       help='Input JSONL file containing specification sheets (default: specification_sheets.jsonl)')
+    parser.add_argument('--output', '-o', 
+                       default="specification_sheets_filled.jsonl",
+                       help='Output JSONL file for filled specification sheets (default: specification_sheets_filled.jsonl)')
+    parser.add_argument('--samples', '-n',
+                       type=int,
+                       default=4,
+                       help='Number of samples to generate per specification sheet (default: 4)')
+    args = parser.parse_args()
 
     dictionary_sepct_sheets = {}
     
-    with open("specification_sheets.jsonl", "r") as f:
+    with open(args.input, "r") as f:
         for line in f:
             data = json.loads(line)
             category = data["category"]
@@ -148,17 +161,14 @@ if __name__ == "__main__":
 
             out = prompt_template.format(product_type=product_type, category=category, specification_sheet=specification_sheet_str)
             out_list = []
-            for _ in range(4):
+            for _ in range(args.samples):
                 out = generate_specification_sheet(product_type, category, prompt_template, specification_sheet_str)
                 out_list.append(out)
 
-
             dictionary_sepct_sheets[product_type] = out_list
 
-
-
     # Save the dictionary as a jsonl file
-    with open("specification_sheets_filled.jsonl", "w") as f:
+    with open(args.output, "w") as f:
         for product_type, specification_sheet_list in dictionary_sepct_sheets.items():
             for specification_sheet in specification_sheet_list:
                 f.write(json.dumps({"product_type": product_type, "specification_sheet": specification_sheet}) + "\n")
