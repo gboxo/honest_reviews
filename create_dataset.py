@@ -121,11 +121,15 @@ def create_prompts(input_filepath, output_filepath):
 
 def main():
     parser = argparse.ArgumentParser(description='Create prompts from specification sheets')
-    parser.add_argument('--input', '-i', help='Input JSONL file containing specification sheets')
-    parser.add_argument('--output', '-o', default="final_new_spec_sheet.jsonl", help='Output JSONL file for generated prompts')
+    parser.add_argument('--input', '-i', 
+                       required=True,
+                       help='Input JSONL file containing specification sheets')
+    parser.add_argument('--output', '-o', 
+                       default="final_new_spec_sheet.jsonl",
+                       help='Output JSONL file for generated prompts')
     args = parser.parse_args()
     
-    create_prompts(args.input_file, args.output_file)
+    create_prompts(args.input, args.output)
 
 if __name__ == "__main__":
     main()
