@@ -1,6 +1,7 @@
 import json
 import re
 import openai
+import argparse
 from pathlib import Path
 
 
@@ -129,20 +130,23 @@ def generate_specification_sheet(product_type, category, template):
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='Generate specification sheets for products')
+    parser.add_argument('--output', '-o', 
+                       default="new_specification_sheets.jsonl",
+                       help='Output JSONL file for specification sheets (default: new_specification_sheets.jsonl)')
+    args = parser.parse_args()
+
     dictionary_sepct_sheets: dict[str, dict[str, dict[str, int]]] = {}
-    for category, category_type in new_category_and_type.items():  # change here
+    for category, category_type in new_category_and_type.items():
         dictionary_sepct_sheets[category] = {}
         for product_type, product_type_name in category_type.items():
             out = generate_specification_sheet(product_type, category, prompt_template)
             dictionary_sepct_sheets[category][product_type] = out
 
-
-
     # Save the dictionary as a jsonl file
-    with open("new_specification_sheets.jsonl", "w") as f:
+    with open(args.output, "w") as f:
         for category, category_type in dictionary_sepct_sheets.items():
             for product_type, product_type_name in category_type.items():
                 f.write(json.dumps({"category": category, "product_type": product_type, "specification_sheet": product_type_name}) + "\n")
-
 
 

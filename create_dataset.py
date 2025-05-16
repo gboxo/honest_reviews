@@ -1,5 +1,6 @@
 import json
 import random
+import argparse
 from template import introduction, dishonest_suffix, final_instructions, category_and_type
 
 def process_spec_sheet(spec_sheet):
@@ -118,5 +119,13 @@ def create_prompts(input_filepath, output_filepath):
             outfile.write(json.dumps(output_obj_dishonest) + "\n")
             outfile.write(json.dumps(output_obj_honest) + "\n")
 
+def main():
+    parser = argparse.ArgumentParser(description='Create prompts from specification sheets')
+    parser.add_argument('input_file', help='Input JSONL file containing specification sheets')
+    parser.add_argument('output_file', help='Output JSONL file for generated prompts')
+    args = parser.parse_args()
+    
+    create_prompts(args.input_file, args.output_file)
+
 if __name__ == "__main__":
-    create_prompts("specification_sheets_filled.jsonl", "final_prompts.jsonl")
+    main()

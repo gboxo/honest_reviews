@@ -1,0 +1,250 @@
+{
+    "name": "str",
+    "company_name": "str",
+    "year_of_launch": "int",
+    "blending_performance": "int",
+    "build_quality": "int",
+    "ease_of_cleaning": "int",
+    "noise_level": "int",
+    "versatility": "int"
+  }
+  {
+    "name": "str",
+    "company_name": "str",
+    "year_of_launch": "int",
+    "heating_performance": "int",
+    "build_quality": "int",
+    "ease_of_use": "int",
+    "energy_efficiency": "int",
+    "noise_level": "int"
+  }
+  {
+    "name": "str",
+    "company_name": "str",
+    "year": "int",
+    "toasting_evenness": "int",
+    "build_quality": "int",
+    "ease_of_use": "int",
+    "toasting_speed": "int",
+    "cleaning_convenience": "int"
+  }
+  {
+    "name": "str",
+    "company_name": "str",
+    "year_of_launch": "int",
+    "brew_quality": "int",
+    "ease_of_use": "int",
+    "build_quality": "int",
+    "cleaning_convenience": "int",
+    "brewing_speed": "int"
+  }
+  {
+    "name": "str",
+    "company_name": "str",
+    "year": "int",
+    "cooking_performance": "int",
+    "ease_of_use": "int",
+    "capacity": "int",
+    "build_quality": "int",
+    "cleaning_convenience": "int"
+  }
+  {
+    "name": "str",
+    "company_name": "str",
+    "year_of_launch": "int",
+    "drying_performance":  "int",
+    "heat_settings":  "int",
+    "noise_level":  "int",
+    "build_quality":  "int",
+    "ergonomics":  "int"
+  }
+  {
+    "name": "str",
+    "company_name": "str",
+    "year_of_launch": "int",
+    "heating_speed": "int",
+    "temperature_control_accuracy": "int",
+    "plate_quality": "int",
+    "ease_of_use": "int",
+    "hair_protection": "int"
+  }
+  {
+    "name": "str",
+    "company_name": "str",
+    "year": "int",
+    "heat_up_time": "int",
+    "curling_performance": "int",
+    "temperature_control": "int",
+    "ease_of_use": "int",
+    "hair_protection": "int"
+  }
+  {
+    "name": "str",
+    "company_name": "str",
+    "year_of_launch": "int",
+    "hydration_effectiveness": "int",
+    "skin_compatibility": "int",
+    "fragrance_quality": "int",
+    "packaging_design": "int",
+    "value_for_money": "int"
+  }
+  {
+    "name": "str",
+    "company_name": "str",
+    "year": "int",
+    "hydration_effectiveness": "int",
+    "skin_softening": "int",
+    "application_ease": "int",
+    "removal_ease": "int",
+    "scent_quality": "int"
+  }
+  {
+    "name": "str",
+    "company_name": "str",
+    "year_of_launch": "int",
+    "durability": "int",
+    "design_aesthetics": "int",
+    "thermal_retention": "int",
+    "leak_proof_performance": "int",
+    "ease_of_cleaning": "int"
+  }
+  {
+    "name": "string",
+    "company_name": "string",
+    "year_of_launch": 0,
+    "comfort": 0,
+    "durability": 0,
+    "storage_capacity": 0,
+    "organization": 0,
+    "style_design": 0
+  }
+  {
+    "name": "str",
+    "company_name": "str",
+    "year_of_launch": "int",
+    "material_quality": "int",
+    "storage_capacity": "int",
+    "design_aesthetics": "int",
+    "durability": "int",
+    "ease_of_access": "int"
+  }
+  {
+    "name": "str",
+    "company_name": "str",
+    "year_of_launch": "int",
+    "water_resistance": "int",
+    "wind_resistance": "int",
+    "durability": "int",
+    "portability": "int",
+    "opening_mechanism_quality": "int"
+  }
+  {
+    "name": "str",
+    "company_name": "str",
+    "year_of_launch": "int",
+    "durability": "int",
+    "storage_capacity": "int",
+    "maneuverability": "int",
+    "security_features": "int",
+    "overall_design": "int"
+  }
+  {
+    "name": "str",
+    "company_name": "str",
+    "year_of_launch": "int",
+    "comfort": "int",
+    "portability": "int",
+    "material_quality": "int",
+    "support": "int",
+    "ease_of_cleaning": "int"
+  }
+  {
+    "name": "str",
+    "company_name": "str",
+    "year_of_launch": "int",
+    "articulation": "int",
+    "paint_quality": "int",
+    "accessory_inclusion": "int",
+    "durability": "int",
+    "likeness_to_character": "int"
+  }
+  {
+    "name": "str",
+    "company_name": "str",
+    "year_of_launch": "int",
+    "component_quality": "int",
+    "gameplay_depth": "int",
+    "replayability": "int",
+    "rule_clarity": "int",
+    "visual_appeal": "int"
+  }
+  {
+    "name": "str",
+    "company_name": "str",
+    "year": "int",
+    "build_quality": "int",
+    "creativity_value": "int",
+    "playability": "int",
+    "instruction_clarity": "int",
+    "piece_quality": "int"
+  }
+  {
+    "name": "str",
+    "company_name": "str",
+    "year_of_launch": "int",
+    "speed": "int",
+    "control_range": "int",
+    "battery_life": "int",
+    "build_quality": "int",
+    "maneuverability": "int"
+  }
+  {
+    "name": "str",
+    "company_name": "str",
+    "year": "int",
+    "flight_time": "int",
+    "control_range": "int",
+    "build_quality": "int",
+    "ease_of_control": "int",
+    "aerobatic_capabilities": "int"
+  }
+  {
+    "name": "str",
+    "company_name": "str",
+    "year_of_launch": "int",
+    "storyline": "int",
+    "acting_performance": "int",
+    "direction": "int",
+    "cinematography": "int",
+    "music_score": "int"
+  }
+  {
+    "name": "str",
+    "company_name": "str",
+    "year_of_launch": "int",
+    "melody": "int",
+    "lyrics_quality": "int",
+    "vocal_performance": "int",
+    "production_quality": "int",
+    "originality": "int"
+  }
+  {
+    "name": "str",
+    "company_name": "str",
+    "year_of_launch": "int",
+    "plot_quality": "int",
+    "character_development": "int",
+    "writing_style": "int",
+    "originality": "int",
+    "entertainment_value": "int"
+  }
+  {
+    "name": "str",
+    "company_name": "str",
+    "year_of_launch": "int",
+    "graphics_quality": "int",
+    "gameplay_mechanics": "int",
+    "story_narrative": "int",
+    "soundtrack": "int",
+    "replay_value": "int"
+  }
