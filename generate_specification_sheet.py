@@ -139,7 +139,7 @@ if __name__ == "__main__":
 
 
     # Save the dictionary as a jsonl file
-    with open("specification_sheets.jsonl", "w") as f:
+    with open("new_specification_sheets.jsonl", "w") as f:
         for category, category_type in dictionary_sepct_sheets.items():
             for product_type, product_type_name in category_type.items():
                 f.write(json.dumps({"category": category, "product_type": product_type, "specification_sheet": product_type_name}) + "\n")
