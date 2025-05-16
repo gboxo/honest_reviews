@@ -1,11 +1,45 @@
 
 
+new_category_and_type: dict[str, dict[str, str]] = {
+    "kitchenware_and_appliances": {
+        "blender": "Blender",
+        "microwave": "Microwave",
+        "toaster": "Toaster",
+        "coffee_maker": "Coffee Maker",
+        "air_fryer": "Air Fryer",
+    },
+    "Beauty_and_Personal_Care": {
+        "hair_dryer": "Hair Dryer",
+        "hair_straightener": "Hair Straightener",
+        "hair_curler": "Hair Curler",
+        "skincare_set": "Skincare Set",
+        "face_mask": "Face Mask",
+    },
+    "lifestyle": {
+        "water_bottle": "Water Bottle",
+        "backpack": "Backpack",
+        "wallet": "Wallet",
+        "umbrella": "Umbrella",
+        "luggage": "Luggage",
+        "travel_pillow": "Travel Pillow",
+    },
+    "toys_and_games": {
+        "action_figure": "Action Figure",
+        "board_game": "Board Game",
+        "lego_set": "Lego Set",
+        "remote_control_car": "Remote Control Car",
+        "remote_control_plane": "Remote Control Plane",
+    },
+    "entertainment": {
+        "movies": "Movies",
+        "music": "Music",
+        "books": "Books",
+        "games": "Games",
+    }
+}
 
-
-
-category_and_type = {
+category_and_type: dict[str, dict[str, str]] = {
     "consumer_electronics": {
-        "smartphone": "Smartphone",
         "tablet": "Tablet",
         "laptop": "Laptop",
         "smartwatch": "Smartwatch",
@@ -27,14 +61,6 @@ category_and_type = {
         "exercise_ball": "Exercise Ball",
     }
 }
-
-
-
-
-
-
-
-
 
 
 

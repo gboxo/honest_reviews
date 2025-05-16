@@ -5,7 +5,7 @@ from pathlib import Path
 
 
 
-from template import category_and_type
+from template import category_and_type, new_category_and_type
 
 """
 Send request to generate specification sheet for various devices.
@@ -130,7 +130,7 @@ def generate_specification_sheet(product_type, category, template):
 
 if __name__ == "__main__":
     dictionary_sepct_sheets: dict[str, dict[str, dict[str, int]]] = {}
-    for category, category_type in category_and_type.items():
+    for category, category_type in new_category_and_type.items():  # change here
         dictionary_sepct_sheets[category] = {}
         for product_type, product_type_name in category_type.items():
             out = generate_specification_sheet(product_type, category, prompt_template)
