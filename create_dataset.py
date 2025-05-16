@@ -1,7 +1,7 @@
 import json
 import random
 import argparse
-from template import introduction, dishonest_suffix, final_instructions, category_and_type
+from template import introduction, dishonest_suffix, final_instructions, new_category_and_type
 
 def process_spec_sheet(spec_sheet):
     """
@@ -27,7 +27,7 @@ def get_product_category(product_type):
     Using the mapping from category_and_type, find the category corresponding
     to the given product type.
     """
-    for category, types in category_and_type.items():
+    for category, types in new_category_and_type.items():
         if product_type in types:
             return category
     return None
