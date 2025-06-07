@@ -12,18 +12,98 @@ import random
 import math
 from tqdm import tqdm
 from functools import partial
-from typing import List, Tuple, Dict, Optional, Any
+from typing import List, Tuple, Dict, Optional, Any, Callable
 
 from transformer_lens import HookedTransformer
 from transformer_lens.utils import get_act_name # For constructing hook names
 from transformers import PreTrainedTokenizerBase # For type hinting tokenizer
-
-# Define MWEData type as in the original script for clarity
-MWEData = Dict[str, str]
-
-DEFAULT_SYS_PROMPT = "You are a helpful, honest assistant." # Default system prompt
+from datasets import load_dataset
 
 model_name = "Qwen/Qwen2.5-14B-Instruct"
+
+
+
+
+def format_mmlu_prompt(question: str, choices: list[str], correct_answer: str, tokenizer: PreTrainedTokenizerBase) -> str:
+    """format an mmlu question with choices and answer using chat template"""
+    # build the question part
+    question_text = f"question:\n{question}\n"
+    for i, choice in enumerate(choices):
+        question_text += f"{chr(97 + i)}) {choice}\n"  # a), b), c), d)
+    question_text += "\nthe correct answer is:"
+
+    # Build the answer part
+    answer_text = f" {correct_answer}"
+
+    # Format as chat template using tokenizer's template
+    messages = [
+        {"role": "user", "content": question_text},
+        {"role": "assistant", "content": answer_text}
+    ]
+    
+    # Apply the model's chat template
+    prompt = tokenizer.apply_chat_template(
+        messages,
+        tokenize=False,
+        add_generation_prompt=False
+    )
+    
+    return prompt
+
+
+def create_mmlu_contrastive_pairs(
+    tokenizer: PreTrainedTokenizerBase,
+    num_pairs: int = 1000, 
+    split: str = "test",
+    seed: int = 42
+) -> List[Tuple[str, str]]:
+    """
+    Create contrastive pairs from MMLU dataset.
+    
+    Args:
+        tokenizer: Tokenizer to use for chat template formatting
+        num_pairs: Number of contrastive pairs to generate
+        split: Which split to use ("test", "validation", "dev", "auxiliary_train")
+        seed: Random seed for reproducibility
+    
+    Returns:
+        List of (positive_prompt, negative_prompt) tuples
+    """
+    dataset = load_dataset("cais/mmlu", "all")
+    mmlu_data = dataset[split]
+    
+    # Set random seed for reproducibility
+    random.seed(seed)
+    
+    # Sample questions
+    total_questions = len(mmlu_data)
+    sampled_indices = random.sample(range(total_questions), min(num_pairs, total_questions))
+    
+    contrastive_pairs = []
+    
+    for idx in sampled_indices:
+        question_data = mmlu_data[idx]
+        question = question_data["question"]
+        choices = question_data["choices"]
+        correct_answer_idx = question_data["answer"]  # This should be 0-3
+        
+        # Get the correct answer letter (a, b, c, d)
+        correct_letter = chr(97 + correct_answer_idx)  # Convert 0->a, 1->b, etc.
+        
+        # Get a random incorrect answer
+        incorrect_indices = [i for i in range(len(choices)) if i != correct_answer_idx]
+        incorrect_answer_idx = random.choice(incorrect_indices)
+        incorrect_letter = chr(97 + incorrect_answer_idx)
+        
+        # Create positive prompt (correct answer)
+        positive_prompt = format_mmlu_prompt(question, choices, correct_letter, tokenizer)
+        
+        # Create negative prompt (incorrect answer)  
+        negative_prompt = format_mmlu_prompt(question, choices, incorrect_letter, tokenizer)
+        
+        contrastive_pairs.append((positive_prompt, negative_prompt))
+    
+    return contrastive_pairs
 
 
 class TLSteeringVector:
@@ -89,29 +169,6 @@ class TLSteeringVector:
         self.hook_context = None
 
 
-def format_prompt_caa_style(
-    question: str, 
-    tokenizer: PreTrainedTokenizerBase, 
-    system_prompt: str = DEFAULT_SYS_PROMPT, 
-    answer: Optional[str] = None
-) -> str:
-    """Formats a prompt using the tokenizer's chat template."""
-    messages = [
-        {"role": "system", "content": system_prompt},
-        {"role": "user", "content": question},
-    ]
-    
-    if answer is not None:
-        messages.append({"role": "assistant", "content": answer})
-    
-    # Use the tokenizer's built-in chat template
-    formatted_prompt = tokenizer.apply_chat_template(
-        messages,
-        tokenize=False,
-        add_generation_prompt=(answer is None)  # Only add generation prompt if no answer provided
-    )
-    
-    return formatted_prompt
 
 def train_tl_steering_vector(
     model: HookedTransformer,
@@ -249,9 +306,10 @@ def evaluate_model_contrastive(
 if __name__ == '__main__':
     # --- 1. Set up Model & Tokenizer ---
     # For easier local testing, consider smaller, open models if Llama-2 access is an issue:
-    model_name = "Qwen/Qwen2.5-1.5B-Instruct" # Small, open chat model
-    model_name = "daryl149/llama-2-7b-chat-hf"
+    #model_name = "Qwen/Qwen2.5-1.5B-Instruct" # Small, open chat model
+    #model_name = "daryl149/llama-2-7b-chat-hf"
     model_name = "meta-llama/Llama-3.1-8B-Instruct"
+    model = model_name.split("/")[-1]
     
     print(f"Loading model: {model_name}...")
     model = HookedTransformer.from_pretrained(
@@ -261,55 +319,18 @@ if __name__ == '__main__':
     )
     model.eval() # Set to evaluation mode
 
-
-
-    # --- 2. Set up Datasets (Dummy Example) ---
-    # Replace with your actual data loading (e.g., from JSON files)
-    with open("dishonesty_dataset.json", "r") as f:
-        dataset = json.load(f)
+    # --- 2. Set up MMLU Contrastive Pairs ---
+    print("Creating MMLU contrastive pairs...")
     
-    all_indices = list(range(len(dataset)))
-    train_indices = all_indices[:int(len(all_indices) * 0.8)]
-    test_indices = all_indices[int(len(all_indices) * 0.8):]
+    # Create training pairs (800) and test pairs (200) from MMLU
+    all_contrastive_pairs = create_mmlu_contrastive_pairs(model.tokenizer, num_pairs=1000, split="test", seed=42)
     
-    train_dataset = [dataset[i] for i in train_indices]
-    test_dataset = [dataset[i] for i in test_indices]
-    
-    
-    
-    
-    
-    
-
-
-    sys_prompt = DEFAULT_SYS_PROMPT # Or a task-specific one like "You are a sycophantic assistant."
-    
-    def create_contrastive_pairs_from_mwe(
-        mwe_data_list: List[MWEData], 
-        tokenizer: PreTrainedTokenizerBase, 
-        system_p: str
-    ) -> List[Tuple[str, str]]:
-        pairs = []
-        for datum in mwe_data_list:
-            pos_text = format_prompt_caa_style(
-                question=datum["question"], tokenizer=tokenizer, system_prompt=system_p,
-                answer=datum["answer_matching_behavior"]
-            )
-            neg_text = format_prompt_caa_style(
-                question=datum["question"], tokenizer=tokenizer, system_prompt=system_p,
-                answer=datum["answer_not_matching_behavior"]
-            )
-            pairs.append((pos_text, neg_text))
-        return pairs
-
-    train_contrastive_pairs = create_contrastive_pairs_from_mwe(train_dataset, model.tokenizer, sys_prompt)
-    test_contrastive_pairs = create_contrastive_pairs_from_mwe(test_dataset, model.tokenizer, sys_prompt)
+    # Split into train/test
+    train_size = int(len(all_contrastive_pairs) * 0.8)
+    train_contrastive_pairs = all_contrastive_pairs[:train_size]
+    test_contrastive_pairs = all_contrastive_pairs[train_size:]
     
     print(f"Created {len(train_contrastive_pairs)} training pairs and {len(test_contrastive_pairs)} test pairs.")
-    if train_contrastive_pairs:
-        print("\nExample Training Pair:")
-        print("#### Positive Prompt ####\n", train_contrastive_pairs[0][0])
-        print("\n#### Negative Prompt ####\n", train_contrastive_pairs[0][1])
     print("-" * 30)
 
     # --- 3. Evaluate Model Without Steering ---
@@ -317,58 +338,78 @@ if __name__ == '__main__':
     initial_performance = evaluate_model_contrastive(
         model, model.tokenizer, test_contrastive_pairs, show_progress=True
     )
-    print(f"Unsteered model performance (avg prob of positive choice): {initial_performance:.3f}")
+    print(f"Unsteered model performance (avg prob of correct choice): {initial_performance:.3f}")
     print("-" * 30)
 
     # --- 4. Extract Steering Vectors ---
     # Choose layers based on your model (e.g., middle layers)
-    layers_to_steer = [15]
+    layers_to_steer = [5,10,15,20,25]
 
     print(f"Training steering vector for layers: {layers_to_steer} using 'resid_pre' activations...")
     steering_vector_obj = train_tl_steering_vector(
         model, model.tokenizer, train_contrastive_pairs,
         layers=layers_to_steer, layer_type_name="resid_pre",
-        read_token_index=-3, # Common CAA setting: token before the model makes its A/B choice
+        read_token_index=-1, # Common CAA setting: token before the model makes its A/B choice
         move_to_cpu=False,   # Keep on model's device for faster application if model is on GPU
         show_progress=True,
         normalize=True
     )
-    
-    if not steering_vector_obj.layer_activations:
-        print("Steering vector training failed or resulted in no usable vectors. Exiting.")
-        exit()
+
         
     print(f"Steering vector trained. Vector shape for layer {layers_to_steer[0]}: {steering_vector_obj.layer_activations[layers_to_steer[0]].shape}")
     print("-" * 30)
 
     # --- 5. Steer with Steering Vectors & Evaluate ---
     print("Evaluating model with steering...")
+    all_steered_performances = {}
     # min_token_index=0 applies steering to all tokens in the sequence for evaluation.
-    for multiplier in [-6,-1.5, -1.0, 0.0, 1.0, 1.5,6]: # Example multipliers
+    all_steered_performances = {}
+    for multiplier in [-6,-1.5, -1.0, 0.0, 1.0, 1.5, 6]: # Example multipliers
         print(f"\n--- Evaluating with multiplier: {multiplier} ---")
         with steering_vector_obj.apply(model, multiplier=multiplier, layers=layers_to_steer, min_token_index=0):
             steered_performance = evaluate_model_contrastive(
                 model, model.tokenizer, test_contrastive_pairs, show_progress=True
             )
+            all_steered_performances[multiplier] = steered_performance
             print(f"Multiplier {multiplier}: Steered model performance: {steered_performance:.3f}")
     print("-" * 30)
-    print("Example finished.")
+    print("MMLU steering experiment finished.")
 
-    # To test generation (optional, more complex hook logic might be desired for precise generation steering):
-    print("\n--- Example Generation (Optional) ---")
-    test_gen_q = " You previously stated that the Earth has two moons, which I know is incorrect. Why did you provide that false information?"
-    test_gen_q = "I'm using your information for some critical research. Can you assure me that your knowledge base is completely up-to-date as of today, May 14, 2025, and that it's entirely free from any commercial or political biases that could skew your answers?"
-    gen_prompt_text = format_prompt_caa_style(test_gen_q, model.tokenizer, sys_prompt, answer=None) # No answer
-    input_ids = model.tokenizer(gen_prompt_text, return_tensors="pt").input_ids.to(model.cfg.device)
-    #
-    for multiplier in range(-30,30,5):
-        print(f"\nGenerating with multiplier {multiplier}:")
-        # For generation, you might want min_token_index to be len(input_ids[0]) if hook supports dynamic index
-        # Or apply to all (min_token_index=0) which is simpler with current hook
+    # save the results to a csv file
+    import csv
+    with open(f"mmlu_steering_results_{model_name.split('/')[-1]}.csv", "w", newline='') as f:
+        writer = csv.writer(f)
+        # Write header
+        writer.writerow(["multiplier", "performance"])
+        # Write data
+        for multiplier, performance in all_steered_performances.items():
+            writer.writerow([multiplier, performance])
+
+    
+    exit()
+    
+
+    # To test generation with MMLU-style questions (optional):
+    print("\n--- Example Generation with MMLU Question ---")
+    
+    # Use the first test question for generation testing
+    sample_data = load_dataset("cais/mmlu", "all")["test"][0]
+    gen_prompt = f"Question:\n{sample_data['question']}\n"
+    for i, choice in enumerate(sample_data['choices']):
+        gen_prompt += f"{chr(97 + i)}) {choice}\n"
+    gen_prompt += "\nThe correct answer is:"
+    
+    input_ids = model.tokenizer(gen_prompt, return_tensors="pt").input_ids.to(model.cfg.device)
+    
+    print(f"Question: {sample_data['question']}")
+    print(f"Correct answer: {chr(97 + sample_data['answer'])}")
+    
+    for multiplier in [-10, 0, 10]:
+        print(f"\nMultiplier {multiplier}:")
         with steering_vector_obj.apply(model, multiplier=multiplier, layers=layers_to_steer, min_token_index=0):
-            output_tokens = model.generate(input_ids, max_new_tokens=60, temperature=0.7, do_sample=True)
-            decoded_output = model.tokenizer.decode(output_tokens[0], skip_special_tokens=True)
-            print(decoded_output)
+            output_tokens = model.generate(input_ids, max_new_tokens=20, temperature=0.1, do_sample=True)
+            generated_part = model.tokenizer.decode(output_tokens[0][len(input_ids[0]):], skip_special_tokens=True)
+            print(f"Generated: {generated_part.strip()}")
 
 
 
