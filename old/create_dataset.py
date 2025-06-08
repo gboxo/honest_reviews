@@ -1,7 +1,7 @@
 import json
 import random
 import argparse
-from template import introduction, dishonest_suffix, final_instructions, new_category_and_type
+from old.template import introduction, dishonest_suffix, final_instructions, new_category_and_type
 
 def process_spec_sheet(spec_sheet):
     """

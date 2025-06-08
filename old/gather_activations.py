@@ -4,7 +4,7 @@ from transformer_lens import HookedTransformer
 import torch
 import numpy as np
 import pandas as pd
-from template import introduction, final_instructions
+from old.template import introduction, final_instructions
 
 
 random_phone_company_names = ["NovaTech", "TechNova"]

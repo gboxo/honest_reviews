@@ -6,7 +6,7 @@ from pathlib import Path
 
 
 
-from template import category_and_type, new_category_and_type
+from old.template import category_and_type, new_category_and_type
 
 """
 Send request to generate specification sheet for various devices.
