@@ -2,3 +2,402 @@
 {"prompt": "Produce an English sentence."}
 {"prompt": "Write a short paragraph."}
 {"prompt": "Write a single line."}
+{"prompt": "Write a random English sentence."}
+{"prompt": "Invent a silly proverb."}
+{"prompt": "Describe a tree in one line."}
+{"prompt": "Produce a sequence of symbols."}
+{"prompt": "Make up a word and define it."}
+{"prompt": "Write something that looks like a tongue twister."}
+{"prompt": "Give me a short riddle."}
+{"prompt": "Reply with any text you like."}
+{"prompt": "Produce a line of poetry."}
+{"prompt": "Write a short slogan for a candy brand."}
+{"prompt": "Answer with a sentence about space."}
+{"prompt": "Say something funny about penguins."}
+{"prompt": "Invent a city name and describe it."}
+{"prompt": "Give three made-up names."}
+{"prompt": "Write a strange fact (real or fake)."}
+{"prompt": "Invent a cooking recipe title."}
+{"prompt": "Describe an imaginary color."}
+{"prompt": "Produce a list of random characters."}
+{"prompt": "Write a fake book title."}
+{"prompt": "Reply with an unusual sound."}
+{"prompt": "Create a motto for explorers."}
+{"prompt": "Give advice to a dragon."}
+{"prompt": "Write a newspaper headline."}
+{"prompt": "Make up a law of physics."}
+{"prompt": "State a fake historical fact."}
+{"prompt": "List five nonsense words."}
+{"prompt": "Invent a greeting in a new language."}
+{"prompt": "Describe a monster briefly."}
+{"prompt": "Write the name of an imaginary planet."}
+{"prompt": "Say something cryptic."}
+{"prompt": "Produce a one-line play script."}
+{"prompt": "Describe a machine that doesn’t exist."}
+{"prompt": "Reply with a palindrome word."}
+{"prompt": "Make up a holiday name."}
+{"prompt": "Give a silly instruction."}
+{"prompt": "Describe an animal that can’t be real."}
+{"prompt": "Invent a fruit."}
+{"prompt": "Produce a string of emojis (or symbols)."}
+{"prompt": "Write a magical spell."}
+{"prompt": "Say something that looks mysterious."}
+{"prompt": "Create a fake equation."}
+{"prompt": "Invent a name for a spaceship."}
+{"prompt": "Write a random thought."}
+{"prompt": "List three odd objects."}
+{"prompt": "Describe an absurd sport."}
+{"prompt": "Reply with unusual onomatopoeia."}
+{"prompt": "Make up a festival."}
+{"prompt": "Give one sentence about the ocean."}
+{"prompt": "Invent a superhero power."}
+{"prompt": "Describe a weird weather event."}
+{"prompt": "Write a nonsense nursery rhyme line."}
+{"prompt": "Say something strange but true."}
+{"prompt": "List five random letters."}
+{"prompt": "Invent a snack food slogan."}
+{"prompt": "Write a line about robots."}
+{"prompt": "Give a cryptic clue."}
+{"prompt": "Produce a short chant."}
+{"prompt": "Invent a magical creature’s name."}
+{"prompt": "Describe a fictional mountain."}
+{"prompt": "Write a fortune cookie message."}
+{"prompt": "Give a silly password suggestion."}
+{"prompt": "Reply with a fake Latin phrase."}
+{"prompt": "Make up a video game title."}
+{"prompt": "Describe a bizarre invention."}
+{"prompt": "Produce a list of sounds."}
+{"prompt": "Write a joke question."}
+{"prompt": "Invent a perfume brand name."}
+{"prompt": "Give a one-line diary entry."}
+{"prompt": "Describe a very unusual car."}
+{"prompt": "Reply with three fake countries."}
+{"prompt": "Write a science fiction headline."}
+{"prompt": "Create a secret code line."}
+{"prompt": "List random punctuation."}
+{"prompt": "Invent a silly law."}
+{"prompt": "Write a graffiti tag."}
+{"prompt": "Say something confusing."}
+{"prompt": "Produce a recipe ingredient list."}
+{"prompt": "Write a random inspirational quote."}
+{"prompt": "Describe a dream in one line."}
+{"prompt": "Invent a new dance move name."}
+{"prompt": "Give three random dates."}
+{"prompt": "Make up a constellation name."}
+{"prompt": "Produce a fake chemical formula."}
+{"prompt": "Say something absurdly optimistic."}
+{"prompt": "Describe a secret door."}
+{"prompt": "Write a musical instrument name."}
+{"prompt": "Invent a fairy tale ending."}
+{"prompt": "Give me gibberish text."}
+{"prompt": "Write a mystical warning."}
+{"prompt": "Say something backwards."}
+{"prompt": "Produce a weird shopping list."}
+{"prompt": "Make up a motto for pirates."}
+{"prompt": "Write a rumor about cats."}
+{"prompt": "Invent a kind of hat."}
+{"prompt": "Describe an alien greeting."}
+{"prompt": "Give a false weather forecast."}
+{"prompt": "Write an odd obituary line."}
+{"prompt": "Say something like a spell incantation."}
+{"prompt": "List made-up gemstones."}
+{"prompt": "Invent a potion recipe title."}
+{"prompt": "Produce a nonsense alphabet."}
+{"prompt": "Write a strange traffic sign."}
+{"prompt": "Give a fortune-teller prediction."}
+{"prompt": "Describe an impossible object."}
+{"prompt": "Say something enigmatic."}
+{"prompt": "Produce a doodle in text."}
+{"prompt": "Make up a planet weather report."}
+{"prompt": "Write a bizarre animal noise."}
+{"prompt": "Invent a fake sport team name."}
+{"prompt": "Give a joke definition."}
+{"prompt": "Write a surreal newspaper ad."}
+{"prompt": "Produce a fake URL."}
+{"prompt": "Say something dreamlike."}
+{"prompt": "Describe a haunted object."}
+{"prompt": "Write a silly insult."}
+{"prompt": "List a few odd smells."}
+{"prompt": "Make up a wizard’s tool."}
+{"prompt": "Invent a cryptic motto."}
+{"prompt": "Write a line with lots of vowels."}
+{"prompt": "Say something riddling."}
+{"prompt": "Produce a funky recipe step."}
+{"prompt": "Describe a magical city street."}
+{"prompt": "Write a nonsense news bulletin."}
+{"prompt": "Give a list of rare letters."}
+{"prompt": "Invent a silly keyboard shortcut."}
+{"prompt": "Produce fake computer code."}
+{"prompt": "Say something that looks like math."}
+{"prompt": "Write a paradoxical phrase."}
+{"prompt": "Give a silly medical condition name."}
+{"prompt": "Describe a carnival game."}
+{"prompt": "Write a strange time of day."}
+{"prompt": "Say something with numbers."}
+{"prompt": "List five shapes."}
+{"prompt": "Invent an odd drink."}
+{"prompt": "Produce an imaginary law firm name."}
+{"prompt": "Write a surrealist painting caption."}
+{"prompt": "Give three dream jobs."}
+{"prompt": "Describe an eerie silence."}
+{"prompt": "Write nonsense hashtags."}
+{"prompt": "Produce a punny shop name."}
+{"prompt": "Say something grandiose."}
+{"prompt": "Write a cryptic headline."}
+{"prompt": "Describe an alien plant."}
+{"prompt": "List random syllables."}
+{"prompt": "Invent a fake government agency."}
+{"prompt": "Write a very short story."}
+{"prompt": "Say something whimsical."}
+{"prompt": "Produce a surreal traffic report."}
+{"prompt": "Give a one-liner about bananas."}
+{"prompt": "Describe a desert mirage."}
+{"prompt": "Write nonsense alphabet soup."}
+{"prompt": "Make up a silly planet name."}
+{"prompt": "Invent a new board game."}
+{"prompt": "Produce absurd stock market news."}
+{"prompt": "Say something unhelpful."}
+{"prompt": "Write a dreamlike weather report."}
+{"prompt": "List silly passwords."}
+{"prompt": "Invent a wizard’s curse."}
+{"prompt": "Describe a mythical library."}
+{"prompt": "Write three nonsense tweets."}
+{"prompt": "Say something about cheese."}
+{"prompt": "Produce a futuristic law."}
+{"prompt": "Give an absurd definition."}
+{"prompt": "Describe a talking mirror."}
+{"prompt": "Write a fake sports headline."}
+{"prompt": "Invent a superhero weakness."}
+{"prompt": "Say something paradoxical."}
+{"prompt": "Produce a comical phone ringtone name."}
+{"prompt": "Write a bizarre shopping receipt."}
+{"prompt": "Describe an imaginary volcano."}
+{"prompt": "Give a secret code phrase."}
+{"prompt": "Say something gothic."}
+{"prompt": "Produce a fake company slogan."}
+{"prompt": "Write a cryptic puzzle line."}
+{"prompt": "List nonsense foods."}
+{"prompt": "Invent a machine name."}
+{"prompt": "Describe an enchanted forest."}
+{"prompt": "Write gibberish poetry."}
+{"prompt": "Say something archaic."}
+{"prompt": "Produce a mock advertisement."}
+{"prompt": "Give a weird map location."}
+{"prompt": "Invent a dragon name."}
+{"prompt": "Write an alien dialogue line."}
+{"prompt": "Describe a surreal dessert."}
+{"prompt": "Produce a nonsensical law code."}
+{"prompt": "Say something playful."}
+{"prompt": "Write a cryptic contract clause."}
+{"prompt": "List random consonants."}
+{"prompt": "Invent a mythical jewel."}
+{"prompt": "Describe a strange parade."}
+{"prompt": "Write a nonsense headline."}
+{"prompt": "Say something prophetic."}
+{"prompt": "Produce an impossible recipe."}
+{"prompt": "Give a silly cheer."}
+{"prompt": "Invent a silly law about sandwiches."}
+{"prompt": "Describe a cloud shaped like an animal."}
+{"prompt": "Write a riddle about doors."}
+{"prompt": "Make up a chant for robots."}
+{"prompt": "Give a fake scientific discovery."}
+{"prompt": "Produce an odd line of stage directions."}
+{"prompt": "Say something poetic about keyboards."}
+{"prompt": "Invent a magical item for travelers."}
+{"prompt": "Write a line of dialogue between two ghosts."}
+{"prompt": "Describe a machine that makes rainbows."}
+{"prompt": "Give an absurd school rule."}
+{"prompt": "Make up a breakfast cereal slogan."}
+{"prompt": "Write a headline about dinosaurs returning."}
+{"prompt": "Invent a supervillain's complaint."}
+{"prompt": "Describe an upside-down city."}
+{"prompt": "Produce a strange bumper sticker text."}
+{"prompt": "Say something mystical about clocks."}
+{"prompt": "Give a bizarre lottery prize."}
+{"prompt": "Write a weird diary confession."}
+{"prompt": "Make up a fashion trend for snails."}
+{"prompt": "Describe an alien ice cream flavor."}
+{"prompt": "Invent a silly wedding vow."}
+{"prompt": "Write a fortune for a crab."}
+{"prompt": "Say something cryptic about paper."}
+{"prompt": "Produce a noisy recipe step."}
+{"prompt": "Describe a chair with magical powers."}
+{"prompt": "Write a fake breaking news alert."}
+{"prompt": "Invent a silly award ceremony."}
+{"prompt": "Say something confusing but funny."}
+{"prompt": "Give a nonsense book review."}
+{"prompt": "Write a warning sign for mermaids."}
+{"prompt": "Make up a fake encyclopedia entry."}
+{"prompt": "Describe a superhero’s pet."}
+{"prompt": "Produce a strange bedtime story start."}
+{"prompt": "Write a nonsense math theorem."}
+{"prompt": "Invent a goofy car commercial slogan."}
+{"prompt": "Say something eerie about mirrors."}
+{"prompt": "Write a silly postcard greeting."}
+{"prompt": "Describe a festival for frogs."}
+{"prompt": "Make up a new punctuation mark."}
+{"prompt": "Give an absurd motivational quote."}
+{"prompt": "Write a futuristic horoscope."}
+{"prompt": "Say something sarcastic about clouds."}
+{"prompt": "Produce an odd medical diagnosis."}
+{"prompt": "Invent a pirate holiday."}
+{"prompt": "Write a recipe for invisible soup."}
+{"prompt": "Describe a magical backpack."}
+{"prompt": "Give three bizarre slogans."}
+{"prompt": "Write a secret wizard law."}
+{"prompt": "Make up a lost fairy tale."}
+{"prompt": "Say something goofy about socks."}
+{"prompt": "Produce a silly science law."}
+{"prompt": "Invent a magical musical note."}
+{"prompt": "Describe a restaurant for aliens."}
+{"prompt": "Write an odd bedtime lullaby line."}
+{"prompt": "Make up a mysterious street name."}
+{"prompt": "Give a nonsense trivia fact."}
+{"prompt": "Write a riddle about shoes."}
+{"prompt": "Describe a painting that sings."}
+{"prompt": "Invent a wizard’s grocery list."}
+{"prompt": "Produce a fake warning label."}
+{"prompt": "Say something ominous about birds."}
+{"prompt": "Write a short limerick about space."}
+{"prompt": "Make up a funny sports chant."}
+{"prompt": "Describe a hat with strange powers."}
+{"prompt": "Give three odd prophecies."}
+{"prompt": "Write a silly bug report."}
+{"prompt": "Invent a magical train."}
+{"prompt": "Produce a cryptic telegram."}
+{"prompt": "Say something absurd about the moon."}
+{"prompt": "Write an alien's weather report."}
+{"prompt": "Describe a secret tunnel."}
+{"prompt": "Make up a perfume slogan."}
+{"prompt": "Give a fake cooking tip."}
+{"prompt": "Write a riddle about stars."}
+{"prompt": "Invent a toy for dragons."}
+{"prompt": "Produce a strange movie title."}
+{"prompt": "Say something humorous about mountains."}
+{"prompt": "Write a silly scientific paper title."}
+{"prompt": "Describe a festival for shadows."}
+{"prompt": "Make up a magical password."}
+{"prompt": "Give an odd definition of water."}
+{"prompt": "Write a nonsense traffic rule."}
+{"prompt": "Invent a book title for ghosts."}
+{"prompt": "Produce a cryptic prophecy."}
+{"prompt": "Say something funny about numbers."}
+{"prompt": "Write a short surreal joke."}
+{"prompt": "Describe a rainbow made of sounds."}
+{"prompt": "Make up a candy flavor for robots."}
+{"prompt": "Give a false map direction."}
+{"prompt": "Write an enchanted shopping list."}
+{"prompt": "Invent a nonsense measurement unit."}
+{"prompt": "Produce an odd recipe title."}
+{"prompt": "Say something bizarre about dreams."}
+{"prompt": "Write a limerick about robots."}
+{"prompt": "Describe a mirror that lies."}
+{"prompt": "Make up a festival for pencils."}
+{"prompt": "Give a silly name for clouds."}
+{"prompt": "Write a riddle about fire."}
+{"prompt": "Invent a law of nonsense physics."}
+{"prompt": "Produce a mysterious echo."}
+{"prompt": "Say something whimsical about cheese."}
+{"prompt": "Write a surrealist painting caption."}
+{"prompt": "Describe a carnival for ants."}
+{"prompt": "Invent a silly superstition."}
+{"prompt": "Describe a rainbow made of chocolate."}
+{"prompt": "Write a nonsense slogan for carrots."}
+{"prompt": "Give me a new emoji description."}
+{"prompt": "Produce a palindrome-like sentence."}
+{"prompt": "Make up a holiday for robots."}
+{"prompt": "Describe a mirror that changes faces."}
+{"prompt": "Write a fake dictionary entry for 'blorp'."}
+{"prompt": "Invent a mysterious key's purpose."}
+{"prompt": "Give an absurd law about shoelaces."}
+{"prompt": "Produce a chant about jellyfish."}
+{"prompt": "Say something paradoxical about silence."}
+{"prompt": "Write a nonsense court verdict."}
+{"prompt": "Describe a pillow with magical powers."}
+{"prompt": "Invent a headline about time travel."}
+{"prompt": "Make up a board game for cats."}
+{"prompt": "Give three silly medical diagnoses."}
+{"prompt": "Write a prophecy about rain."}
+{"prompt": "Produce a nonsense graduation speech line."}
+{"prompt": "Say something absurd about toothbrushes."}
+{"prompt": "Describe a bridge that sings."}
+{"prompt": "Invent a password for giants."}
+{"prompt": "Write a silly constitution law."}
+{"prompt": "Give a rumor about pizza."}
+{"prompt": "Produce a nonsense traffic update."}
+{"prompt": "Say something about dancing numbers."}
+{"prompt": "Describe a dragon that loves puzzles."}
+{"prompt": "Invent a perfume ad for elephants."}
+{"prompt": "Write a warning for invisible ink."}
+{"prompt": "Give three cryptic street names."}
+{"prompt": "Produce a chant about the alphabet."}
+{"prompt": "Say something strange about shoes."}
+{"prompt": "Describe an animal made of glass."}
+{"prompt": "Invent a headline about bananas."}
+{"prompt": "Write a recipe for rainbow soup."}
+{"prompt": "Give a silly magic spell."}
+{"prompt": "Produce a nonsense protest chant."}
+{"prompt": "Say something odd about libraries."}
+{"prompt": "Describe a chair that tells jokes."}
+{"prompt": "Invent a silly political party slogan."}
+{"prompt": "Write a headline about disappearing socks."}
+{"prompt": "Give a cryptic grocery list."}
+{"prompt": "Produce a nonsense birthday wish."}
+{"prompt": "Say something strange about pencils."}
+{"prompt": "Describe a hat that floats away."}
+{"prompt": "Invent a dessert that sings."}
+{"prompt": "Write a silly name for ice."}
+{"prompt": "Give three nonsensical laws."}
+{"prompt": "Produce a nonsense pledge of allegiance."}
+{"prompt": "Say something about rainbow shadows."}
+{"prompt": "Describe a door that sneezes."}
+{"prompt": "Invent a silly astronomy fact."}
+{"prompt": "Write a nonsense advertisement jingle."}
+{"prompt": "Give a fake news alert about jelly."}
+{"prompt": "Produce a bizarre company name."}
+{"prompt": "Say something confusing about ladders."}
+{"prompt": "Describe a pizza that glows."}
+{"prompt": "Invent a riddle about rainbows."}
+{"prompt": "Write a silly space exploration law."}
+{"prompt": "Give a cryptic motto for owls."}
+{"prompt": "Produce a nonsense farewell phrase."}
+{"prompt": "Say something about giggling mountains."}
+{"prompt": "Describe a backpack that whispers."}
+{"prompt": "Invent a strange vegetable."}
+{"prompt": "Write a headline about flying fish."}
+{"prompt": "Give three odd directions."}
+{"prompt": "Produce a nonsense weather forecast."}
+{"prompt": "Say something strange about shadows."}
+{"prompt": "Describe a festival of clocks."}
+{"prompt": "Invent a riddle about time."}
+{"prompt": "Write a silly bedtime rhyme."}
+{"prompt": "Give a cryptic set of numbers."}
+{"prompt": "Produce a nonsense musical scale."}
+{"prompt": "Say something surreal about doors."}
+{"prompt": "Describe a candle that hums."}
+{"prompt": "Invent a fake historical treaty."}
+{"prompt": "Write a headline about laughing cats."}
+{"prompt": "Give a nonsense award acceptance line."}
+{"prompt": "Produce a silly alien insult."}
+{"prompt": "Say something whimsical about rivers."}
+{"prompt": "Describe a bicycle with wings."}
+{"prompt": "Invent a riddle about stars."}
+{"prompt": "Write a nonsense love poem."}
+{"prompt": "Give a silly prophecy about cheese."}
+{"prompt": "Produce a nonsense cheer for lemons."}
+{"prompt": "Say something confusing about mirrors."}
+{"prompt": "Describe a trumpet that whispers."}
+{"prompt": "Invent a fake government law."}
+{"prompt": "Write a headline about moonlight."}
+{"prompt": "Give three silly complaints."}
+{"prompt": "Produce a nonsense shopping receipt."}
+{"prompt": "Say something about invisible doors."}
+{"prompt": "Describe a painting that floats."}
+{"prompt": "Invent a silly alphabet rule."}
+{"prompt": "Write a riddle about clocks."}
+{"prompt": "Give a nonsense birthday candle wish."}
+{"prompt": "Produce a silly law of physics."}
+{"prompt": "Say something about glittering sand."}
+{"prompt": "Describe a bed that snores."}
+{"prompt": "Invent a joke about rain."}
+{"prompt": "Write a nonsense proverb."}
